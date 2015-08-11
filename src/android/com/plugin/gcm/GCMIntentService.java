@@ -97,17 +97,23 @@ public class GCMIntentService extends GCMBaseIntentService {
 				defaults = Integer.parseInt(extras.getString("defaults"));
 			} catch (NumberFormatException e) {}
 		}
-		
+
+		NotificationCompat.WearableExtender wearableExtender =
+				new NotificationCompat.WearableExtender()
+						//.setHintHideIcon(true)
+						.setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.plane_into_the_sun));
+
 		NotificationCompat.Builder mBuilder =
-			new NotificationCompat.Builder(context)
-				.setDefaults(defaults)
-				.setSmallIcon(context.getApplicationInfo().icon)
-				.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.icon))
-				.setWhen(System.currentTimeMillis())
-				.setContentTitle(extras.getString("title"))
-				.setTicker(extras.getString("title"))
-				.setContentIntent(contentIntent)
-				.setAutoCancel(true);
+				new NotificationCompat.Builder(context)
+						.setDefaults(defaults)
+						.setSmallIcon(context.getApplicationInfo().icon)
+						.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.icon))
+						.setWhen(System.currentTimeMillis())
+						.setContentTitle(extras.getString("title"))
+						.setTicker(extras.getString("title"))
+						.setContentIntent(contentIntent)
+						.setAutoCancel(true)
+						.extend(wearableExtender);
 
 		String message = extras.getString("message");
 		if (message != null) {
