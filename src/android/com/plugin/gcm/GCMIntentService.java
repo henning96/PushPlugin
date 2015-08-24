@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import com.dbschenker.mobile.eschenker.R;
 import com.google.android.gcm.GCMBaseIntentService;
 
 @SuppressLint("NewApi")
@@ -103,13 +102,13 @@ public class GCMIntentService extends GCMBaseIntentService {
 		NotificationCompat.WearableExtender wearableExtender =
 				new NotificationCompat.WearableExtender()
 						//.setHintHideIcon(true)
-						.setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.plane_into_the_sun));
+						.setBackground(BitmapFactory.decodeResource(getResources(), com.dbschenker.mobile.eschenker.R.drawable.plane_into_the_sun));
 
 		NotificationCompat.Builder mBuilder =
 				new NotificationCompat.Builder(context)
 						.setDefaults(defaults)
 						.setSmallIcon(context.getApplicationInfo().icon)
-						.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.icon))
+						.setLargeIcon(BitmapFactory.decodeResource(getResources(), com.dbschenker.mobile.eschenker.R.drawable.icon))
 						.setWhen(System.currentTimeMillis())
 						.setContentTitle(extras.getString("title"))
 						.setTicker(extras.getString("title"))
