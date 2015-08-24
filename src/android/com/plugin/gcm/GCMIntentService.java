@@ -9,10 +9,12 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import com.dbschenker.mobile.eschenker.R;
 import com.google.android.gcm.GCMBaseIntentService;
 
 @SuppressLint("NewApi")
